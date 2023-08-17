@@ -33,7 +33,7 @@ const DATA = [
 
 function App() {
   const [searchResults, setSearchResults] = useState(DATA);
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const addTrack = newTrack => {
@@ -56,7 +56,11 @@ function App() {
         <SearchBar />
         <div>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
-          <Playlist playlistTracks={playlistTracks} onRemove={removeTrack}
+          <Playlist 
+            playlistTracks={playlistTracks} 
+            onRemove={removeTrack}
+            playlistName={playlistName}
+            onNameChange={setPlaylistName}
           />
         </div>
       </div>
