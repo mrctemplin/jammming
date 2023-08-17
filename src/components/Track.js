@@ -1,15 +1,16 @@
 import React from "react";
 
-function Track() {
+function Track({ track }) {
     return (
         <>
             <div>
-                <h3>Name</h3>
-                <p>Artist</p>
+                <h3>{track.name}</h3>
+                <p>{track.artist}</p>
+                <p>{track.album}</p>
             </div>
             <button>+</button>
         </>
-    )
+    );
 }
 
 export default Track;
