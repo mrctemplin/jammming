@@ -34,7 +34,7 @@ const DATA = [
 function App() {
   const [searchResults, setSearchResults] = useState(DATA);
   const [playlistName, setPlaylistName] = useState("New Playlist");
-  const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState(DATA);
 
   return (
     <>
@@ -43,7 +43,7 @@ function App() {
         <SearchBar />
         <div>
           <SearchResults searchResults={searchResults} />
-          <Playlist 
+          <Playlist playlistTracks={playlistTracks}
           />
         </div>
       </div>

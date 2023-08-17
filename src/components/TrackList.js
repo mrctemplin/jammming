@@ -2,12 +2,11 @@ import React from "react";
 
 import Track from "./Track";
 
-function TrackList({tracks}) {
- 
+function TrackList(props) {
         return (
             <>
                 {
-                    tracks?.map(track => 
+                    props.tracks?.map(track => 
                         <Track 
                         track={track}
                         key={track.id}

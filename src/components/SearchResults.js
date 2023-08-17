@@ -2,10 +2,10 @@ import React from "react";
 
 import TrackList from "./TrackList";
 
-function SearchResults({searchResults}) {
+function SearchResults(props) {
     return (
         <>
-            <TrackList tracks={searchResults} />
+            <TrackList tracks={props.searchResults} />
         </>
     );
 }
