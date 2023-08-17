@@ -9,25 +9,29 @@ const DATA = [
     name: "Waterfalls",
     artist: "Luke Christopher",
     album: "Waterfalls",
-    id: 1
+    id: 1,
+    uri: 111
   },
   {
     name: "For Tonight",
     artist: "Giveon",
     album: "Give or Take",
-    id: 2
+    id: 2,
+    uri: 222
   },
   {
     name: "Circles",
     artist: "Post Malone",
     album: "Hollywood's Bleeding",
-    id: 3
+    id: 3,
+    uri: 333
   },
   {
     name: "Heartbreak Fiction",
     artist: "Luke Christopher",
     album: "TMRWFRVR",
-    id: 4
+    id: 4,
+    uri: 444
   }
 ];
 
@@ -49,6 +53,12 @@ function App() {
     );
   }
 
+  const savePlaylist = () => {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    setPlaylistTracks([]);
+    setPlaylistName("");
+  }
+
   return (
     <>
       <h1>Ja<span style={{ color: "purple" }}>MMM</span>ing</h1>
@@ -61,6 +71,7 @@ function App() {
             onRemove={removeTrack}
             playlistName={playlistName}
             onNameChange={setPlaylistName}
+            onSave={savePlaylist}
           />
         </div>
       </div>

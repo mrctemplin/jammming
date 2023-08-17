@@ -15,7 +15,7 @@ function Playlist(props) {
                 onChange={handleNameChange} 
                 value={props.playlistName} 
             />
-            <button>Add to Spotify</button>
+            <button onClick={props.onSave}>Add to Spotify</button>
             <TrackList 
                 tracks={props.playlistTracks} 
                 isPlaylistTrack={true} 
