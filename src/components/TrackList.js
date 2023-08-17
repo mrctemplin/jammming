@@ -10,6 +10,9 @@ function TrackList(props) {
                         <Track 
                         track={track}
                         key={track.id}
+                        onAdd={props.onAdd}
+                        isPlaylistTrack={props.isPlaylistTrack}
+                        onRemove={props.onRemove}
                         />
                     )
                 }

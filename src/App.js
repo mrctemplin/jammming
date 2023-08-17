@@ -34,7 +34,20 @@ const DATA = [
 function App() {
   const [searchResults, setSearchResults] = useState(DATA);
   const [playlistName, setPlaylistName] = useState("New Playlist");
-  const [playlistTracks, setPlaylistTracks] = useState(DATA);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
+
+  const addTrack = newTrack => {
+    if (playlistTracks.some((track) => track.id === newTrack.id)) {
+      return;
+    } 
+    setPlaylistTracks((prevTracks) => [...prevTracks, newTrack]);
+  }
+
+  const removeTrack = track => {
+    setPlaylistTracks((prevTracks) => 
+      prevTracks.filter((currentTrack) => currentTrack.id !== track.id)
+    );
+  }
 
   return (
     <>
@@ -42,8 +55,8 @@ function App() {
       <div>
         <SearchBar />
         <div>
-          <SearchResults searchResults={searchResults} />
-          <Playlist playlistTracks={playlistTracks}
+          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <Playlist playlistTracks={playlistTracks} onRemove={removeTrack}
           />
         </div>
       </div>
