@@ -2,22 +2,27 @@ import React from "react";
 
 import Track from "./Track";
 
-function TrackList(props) {
-        return (
-            <>
-                {
-                    props.tracks?.map(track => 
-                        <Track 
+function TrackList({
+    tracks,
+    addTrack,
+    removeTrack,
+    isPlaylistTrack,
+}) {
+
+    return (
+        <>
+            {
+                tracks?.map(track => 
+                    <Track 
                         track={track}
-                        key={track.id}
-                        onAdd={props.onAdd}
-                        isPlaylistTrack={props.isPlaylistTrack}
-                        onRemove={props.onRemove}
-                        />
-                    )
-                }
-            </>
-        );
+                        addTrack={addTrack}
+                        removeTrack={removeTrack}
+                        isPlaylistTrack={isPlaylistTrack}
+                    />
+                )
+            }
+        </>
+    );
 
 }
 

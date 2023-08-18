@@ -2,24 +2,27 @@ import React from "react";
 
 import TrackList from "./TrackList"
 
-function Playlist(props) {
-    const handleNameChange = ({target}) => {
-        props.onNameChange(target.value);
-    }
+function Playlist({ 
+    playlistTracks,  
+    removeTrack,
+    playlistName,
+    setPlaylistName, 
+    savePlaylist
+}) {
 
     return (
         <>
             <input 
                 type="text" 
                 placeholder="Playlist name" 
-                onChange={handleNameChange} 
-                value={props.playlistName} 
+                onChange={(e) => setPlaylistName(e.target.value)} 
+                value={playlistName} 
             />
-            <button onClick={props.onSave}>Add to Spotify</button>
+            <button onClick={savePlaylist}>Add to Spotify</button>
             <TrackList 
-                tracks={props.playlistTracks} 
+                tracks={playlistTracks} 
                 isPlaylistTrack={true} 
-                onRemove={props.onRemove}
+                removeTrack={removeTrack}
             />
         </>
     );

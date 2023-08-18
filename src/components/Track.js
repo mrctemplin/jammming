@@ -1,22 +1,24 @@
 import React from "react";
 
-function Track(props) {
-    const addTrack = event => {
-        props.onAdd(props.track);
-    }
-
-    const removeTrack = event => {
-        props.onRemove(props.track);
-    }
+function Track({
+    track,
+    addTrack,
+    removeTrack,
+    isPlaylistTrack
+}) {
 
     return (
         <>
-            <div>
-                <h3>{props.track.name}</h3>
-                <p>{props.track.artist}</p>
-                <p>{props.track.album}</p>
+            <div key={track.id}>
+                <h3>{track.name}</h3>
+                <p>{track.artist}</p>
+                <p>{track.album}</p>
             </div>
-            {props.isPlaylistTrack ? <button onClick={removeTrack}>-</button> : <button onClick={addTrack}>+</button>}
+            {
+                isPlaylistTrack ? 
+                <button onClick={() => removeTrack(track)}>Remove</button> : 
+                <button onClick={() => addTrack(track)}>Add</button>
+            }
         </>
     );
 }

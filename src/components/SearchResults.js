@@ -2,10 +2,14 @@ import React from "react";
 
 import TrackList from "./TrackList";
 
-function SearchResults(props) {
+function SearchResults({ searchResults, addTrack }) {
+    
     return (
         <>
-            <TrackList tracks={props.searchResults} onAdd={props.onAdd} />
+            <TrackList 
+                tracks={searchResults} 
+                addTrack={addTrack} 
+            />
         </>
     );
 }
